@@ -14,10 +14,8 @@ public class ProductManager {
     }
 
 
-    // добавьте необходимые поля, конструкторы и методы
-
     public Product[] searchBy(String text) {
-        Product[] result = new Product[0]; // тут будем хранить подошедшие запросу продукты
+        Product[] result = new Product[0];
         for (Product product : repo.findAll()) {
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length + 1];
@@ -31,7 +29,6 @@ public class ProductManager {
         return result;
     }
 
-    // метод определения соответствия товара product запросу search
     public boolean matches(Product product, String search) {
         if (product.getName().contains(search)) {
             return true;
